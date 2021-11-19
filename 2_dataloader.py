@@ -6,6 +6,7 @@
 """
 
 import os
+from matplotlib.pyplot import isinteractive
 import torch
 
 from torch.utils.data import Dataset
@@ -23,7 +24,7 @@ transform = transforms.Compose(
 train_dataset = MNIST(root="./mnist_data",
                       train=True,
                       transform=transform,
-                      target_transform=None,
+                      target_transform=None,  # Eg1.2.1 : <class 'int'>
                       download=False)
 
 
@@ -35,6 +36,12 @@ def eg_2_1():
   train_loader = DataLoader(dataset=train_dataset,
                             batch_size=10000,
                             shuffle=False)
+
+  from collections.abc import Iterable
+  print("isinstance(train_dataset, Iterable): {}".\
+    format(isinstance(train_dataset, Iterable)))
+  print("isinstance(train_loader, Iterable): {}".\
+    format(isinstance(train_loader, Iterable)))
 
   print("type(train_loader): {}".format(type(train_loader)))  # <class 'torch.utils.data.dataloader.DataLoader'>
   for batch in train_loader:
@@ -105,7 +112,6 @@ def eg_2_4():
     return {"x":x, "y":y}
 
   from torch.utils.data import DataLoader
-  from tqdm import tqdm
   train_loader = DataLoader(dataset=train_dataset,
                             batch_size=10000,
                             shuffle=False,
@@ -122,7 +128,7 @@ def eg_2_4():
 
 if __name__ == "__main__":
   """
-  2.0 torch.utils.data.DataLoader
+  2.0 torch.utils.data.DataLoader https://pytorch.org/docs/stable/data.html
   2.1 __iter__  [magic methods]
   2.2 __len__  [magic methods]
   2.3.0 enumerate

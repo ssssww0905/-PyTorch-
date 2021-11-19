@@ -92,7 +92,10 @@ def eg_3_1():
   model = SimpleModel()
   x = train_dataset[0][0]  # torch.Size([1, 28, 28])
   x = x[None, ...]  # torch.Size([1, 1, 28, 28])
-  print(model(x) == model.forward(x))
+  print("model(x) == model.__call__(x): {}".\
+    format(True if torch.all(model(x) == model.__call__(x)) else False))
+  print("model(x) == model.forward(x): {}".\
+    format(True if torch.all(model(x) == model.forward(x)) else False))
 
 
 def eg_3_2():
@@ -106,7 +109,7 @@ def eg_3_2():
         self.conv1 = nn.Conv2d(in_channels=1, out_channels=3, kernel_size=(1, 1))
         self.conv2 = nn.Conv2d(in_channels=3, out_channels=5, kernel_size=(1, 1))
         self.relu = nn.ReLU(inplace=True)
-        self.flatten = nn.Flatten(start_dim=1, end_dim=-1)
+        self.flatten = nn.Flatten(start_dim=1, end_dim=-1)  # (B, C, H ,W)
         self.linear = nn.Linear(in_features=5*28*28, out_features=10, bias=False)
 
     def forward(self, x):
@@ -148,6 +151,7 @@ def eg_3_4_0():
 
   model_vgg16 = models.vgg16()
   print("model_vgg16.state_dict(): {}".format(model_vgg16.state_dict()))
+  print("type(model_vgg16.state_dict()）: {}".format(type(model_vgg16.state_dict())))
 
 
 def eg_3_4_1():
@@ -224,7 +228,7 @@ if __name__ == "__main__":
   # eg_3_4_0()
   # eg_3_4_1()
   # eg_3_4_2()
-  # eg_3_4_3()
-  eg_3_5()
+  eg_3_4_3()
+  # eg_3_5()
 
   print("~~~~~~下课~~~~~~")
