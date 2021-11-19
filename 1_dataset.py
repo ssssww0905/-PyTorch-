@@ -57,10 +57,9 @@ def eg_1_2_0():
   print("type(train_dataset): {}".format(type(train_dataset)))  # <class 'torchvision.datasets.mnist.MNIST'>
   index = 0
   print("train_dataset[{}]: {}".format(index, train_dataset[index]))  # (PIL.Image.Image, 5)
-  print("len(train_dataset): {}".format(len(train_dataset)))
-
   import matplotlib.pyplot as plt
   plt.imshow(train_dataset[index][0], cmap ='gray')
+  print("len(train_dataset): {}".format(len(train_dataset)))
 
 
 def eg_1_2_1():
@@ -130,13 +129,14 @@ def eg_1_4_0():
     ]
   )
   train_dataset = ImageFolder(root=os.path.join("./flower_data", "train"),
-                              transform=transform)
+                              transform=transform, target_transform=None)
 
   index = 0
   print("type(train_dataset[{}]): {}".format(index, type(train_dataset[index])))  # <class 'tuple'>
   print("type(train_dataset[{}][0]): {}".format(index, type(train_dataset[index][0])))  # <class 'torch.Tensor'>
   print("train_dataset[{}][0].shape: {}".format(index, train_dataset[index][0].shape))  # torch.Size([3, 224, 224])
   print("type(train_dataset[{}][1]): {}".format(index, type(train_dataset[index][1])))  # <class 'int'>
+  print("train_dataset[{}][1]: {}".format(index, train_dataset[index][1]))  # 0
 
 
 def eg_1_4_1():
@@ -155,12 +155,12 @@ def eg_1_4_1():
     ]
   )
   train_dataset = ImageFolder(root=os.path.join("./flower_data", "train"),
-                              transform=transform)
+                              transform=transform, target_transform=None)
 
   print("train_dataset.classes: {}".format(train_dataset.classes))  # ['daisy', 'dandelion', 'roses', 'sunflowers', 'tulips']
   print("train_dataset.class_to_idx: {}".format(train_dataset.class_to_idx))  # {'daisy': 0, 'dandelion': 1, 'roses': 2, 'sunflowers': 3, 'tulips': 4}
 
-
+from torch.utils.data import Dataset
 if __name__ == "__main__":
   """
   1.0 torch.utils.data.Dataset
@@ -177,7 +177,7 @@ if __name__ == "__main__":
   # eg_1_2_1()
   # eg_1_3()
   # eg_1_4_0()
-  # eg_1_4_1()
+  eg_1_4_1()
 
   print("~~~~~~下课~~~~~~")
 

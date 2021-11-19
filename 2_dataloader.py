@@ -30,7 +30,7 @@ train_dataset = MNIST(root="./mnist_data",
 
 def eg_2_1():
   """
-  Eg2.1 : __iter__
+  Eg2.1 : __iter__  [magic method]
   """
   from torch.utils.data import DataLoader
   train_loader = DataLoader(dataset=train_dataset,
@@ -48,7 +48,7 @@ def eg_2_1():
     print("type(batch): {}".format(type(batch)))  # <class 'list'>
     print("len(batch): {}".format(len(batch)))  # 2
     print("type(batch[0]): {}".format(type(batch[0])))  # <class 'torch.Tensor'>
-    print("type(batch[1]): {}".format(type(batch[0])))  # <class 'torch.Tensor'>
+    print("type(batch[1]): {}".format(type(batch[1])))  # <class 'torch.Tensor'>
     print("batch[0].shape: {}".format(batch[0].shape))  # torch.Size([10000, 1, 28, 28])
     print("batch[1].shape: {}".format(batch[1].shape))  # torch.Size([10000])
     break
@@ -104,7 +104,9 @@ def eg_2_4():
   Eg2.4 : collate_fn
   """
   def collate_fn(batch):
-    print("type(batch): {}, len(batch): {}".format(type(batch), len(batch)))  # <class 'list'>, 10000
+    print("type(batch): {}".format(type(batch)))  # <class 'list'>
+    print("len(batch): {}".format(len(batch)))  # 10000
+    print("type(batch[0]): {}".format(type(batch[0])))  # <class 'tuple'>
     x = [i[0] for i in batch]
     y = [i[1] for i in batch]
     x = torch.cat(x)[:,None,...]
@@ -129,8 +131,8 @@ def eg_2_4():
 if __name__ == "__main__":
   """
   2.0 torch.utils.data.DataLoader https://pytorch.org/docs/stable/data.html
-  2.1 __iter__  [magic methods]
-  2.2 __len__  [magic methods]
+  2.1 __iter__  [magic method]
+  2.2 __len__  [magic method]
   2.3.0 enumerate
   2.3.1 tqdm
   2.4 collate_fn
