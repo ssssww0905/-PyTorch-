@@ -14,7 +14,7 @@
 
 ## `# 2_dataloader.py`
 
-0. 利用 `torch.utils.data.Dataloader`类
+0. 利用 `torch.utils.data.DataLoader`类
 1. 理解 `__iter__` 这个magic method
 2. 区分 `Dataloader` 与 `Dataset` 的 `__len__`
 3. 利用 内置函数 `enumerate` 与 `tqdm` 模块
@@ -26,7 +26,7 @@
 1. 理解 `__call__` 这个magic method 与自定义 `forward` 关系
 2. 注意 `PyTorch` 中数据的摆放 `(B, C, H ,W)`
 3. 调用 `torchvison.models` 中现成的网络
-4. 注意 `torch.nn.Module.dict_state()` `torch.save()` `torch.load` 以及 `torch.nn.Module.load_state_dict()` 及其中参数
+4. 注意 `torch.nn.Module.dict_state()` `torch.save()` `torch.load()` 以及 `torch.nn.Module.load_state_dict()` 及其中参数
 5. 利用 `torch.utils.model_zoo.load_url()` 下载预训练参数
 
 ## `# 4_optimizer.py`

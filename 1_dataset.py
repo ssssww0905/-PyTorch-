@@ -14,11 +14,11 @@ import torch
 from torch.utils.data import Dataset
 from torch.utils.data import Sampler
 
-"""
-  TODOEg1.1 : __getitem__, __len__
-"""
 
 def eg_1_1():
+  """
+  Eg1.1 : __getitem__, __len__
+  """
   x = torch.linspace(-1, 1, 10)
   y = x**2
 
@@ -43,11 +43,11 @@ def eg_1_1():
   print("simpledataset.__len__(): {}".format(simpledataset.__len__()))
   print("len(simpledataset): {}".format(len(simpledataset)))
 
-"""
-  TODOEg1.2.0 : MNIST
-"""
 
 def eg_1_2_0():
+  """
+  Eg1.2.0 : MNIST
+  """
   from torchvision.datasets.mnist import MNIST
   train_dataset = MNIST(root="./mnist_data",
                         train=True,
@@ -62,11 +62,11 @@ def eg_1_2_0():
   import matplotlib.pyplot as plt
   plt.imshow(train_dataset[index][0], cmap ='gray')
 
-"""
-  TODOEg1.2.1 : transforms
-"""
 
 def eg_1_2_1():
+  """
+  Eg1.2.1 : transforms
+  """
   from torchvision.datasets.mnist import MNIST
   from torchvision import transforms
 
@@ -88,11 +88,11 @@ def eg_1_2_1():
   print("train_dataset[{}][0].shape: {}".format(index, train_dataset[index][0].shape))  # torch.Size([1, 28, 28])
   print("type(train_dataset[{}][1]): {}".format(index, type(train_dataset[index][1])))  # <class 'int'>
 
-"""
-  TODOEg1.3 : VOCSegmentation, VOCDetection
-"""
 
 def eg_1_3():
+  """
+  Eg1.3 : VOCSegmentation, VOCDetection
+  """
   from torchvision.datasets.voc import VOCSegmentation, VOCDetection
 
   segmentation_dataset = VOCSegmentation(root="./voc_data",
@@ -113,11 +113,11 @@ def eg_1_3():
   print("type(detection_dataset[{}][0]): {}".format(index, type(detection_dataset[index][0])))  # <class 'PIL.Image.Image'>
   print("type(detection_dataset[{}][1]): {}".format(index, type(detection_dataset[index][1])))  # <class 'dict'>
 
-"""
-  TODOEg1.4.0 : ImageFolder
-"""
 
 def eg_1_4_0():
+  """
+  Eg1.4.0 : ImageFolder
+  """
   from torchvision.datasets import ImageFolder
   from torchvision import transforms
 
@@ -137,11 +137,11 @@ def eg_1_4_0():
   print("train_dataset[{}][0].shape: {}".format(index, train_dataset[index][0].shape))  # torch.Size([3, 224, 224])
   print("type(train_dataset[{}][1]): {}".format(index, type(train_dataset[index][1])))  # <class 'int'>
 
-"""
-  TODOEg1.4.1 : classes, class_to_idx
-"""
 
 def eg_1_4_1():
+  """
+  Eg1.4.1 : classes, class_to_idx
+  """
   from torchvision.datasets import ImageFolder
   from torchvision import transforms
 

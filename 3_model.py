@@ -12,6 +12,7 @@ import torch
 
 from torch.utils.data import Dataset, DataLoader, dataset
 from torchvision import models, transforms
+from torchvision.datasets.mnist import MNIST
 
 transform = transforms.Compose(
   [
@@ -19,7 +20,7 @@ transform = transforms.Compose(
     transforms.Normalize(mean=(0.5,), std=(0.5,))
   ]
 )
-from torchvision.datasets.mnist import MNIST
+
 train_dataset = MNIST(root="./mnist_data",
                       train=True,
                       transform=transform,
@@ -29,11 +30,11 @@ train_loader = DataLoader(dataset=train_dataset,
                           batch_size=10000,
                           shuffle=True)
 
-"""
-  TODOEg3.0.0 : torch.nn.Module
-"""
 
 def eg_3_0_0():
+  """
+  Eg3.0.0 : torch.nn.Module
+  """
   from torch import nn
   class SimpleModel(nn.Module):
     def __init__(self):
@@ -51,11 +52,11 @@ def eg_3_0_0():
   for name, param in model.named_parameters():
     print(name, param)
 
-"""
-  TODOEg3.0.1 : super().__init__()
-"""
 
 def eg_3_0_1():
+  """
+  Eg3.0.1 : super().__init__()
+  """
   from torch import nn
   class SimpleModel(nn.Module):
     def __init__(self):
@@ -71,11 +72,11 @@ def eg_3_0_1():
   model = SimpleModel()
   print("model: {}".format(model))
 
-"""
-  TODOEg3.1 : __call__  [magic methods]
-"""
 
 def eg_3_1():
+  """
+  Eg3.1 : __call__  [magic methods]
+  """
   from torch import nn
   class SimpleModel(nn.Module):
     def __init__(self):
@@ -93,11 +94,11 @@ def eg_3_1():
   x = x[None, ...]  # torch.Size([1, 1, 28, 28])
   print(model(x) == model.forward(x))
 
-"""
-  TODOEg3.2 : (B, C, H ,W)
-"""
 
 def eg_3_2():
+  """
+  Eg3.2 : (B, C, H ,W)
+  """
   from torch import nn
   class SimpleModel(nn.Module):
     def __init__(self):
@@ -125,11 +126,11 @@ def eg_3_2():
   x = x[None, ...]  # torch.Size([1, 1, 28, 28])
   model(x)
 
-"""
-  TODOEg3.3 : torchvision.models
-"""
 
 def eg_3_3():
+  """
+  Eg3.3 : torchvision.models
+  """
   from torchvision import models
 
   model_vgg16 = models.vgg16()
@@ -138,31 +139,31 @@ def eg_3_3():
   model_resnet50 = models.resnet50()
   print("model_resnet50: {}".format(model_resnet50))
 
-"""
-  TODOEg3.4.0 : model.state_dict()
-"""
 
 def eg_3_4_0():
+  """
+  Eg3.4.0 : model.state_dict()
+  """
   from torchvision import models
 
   model_vgg16 = models.vgg16()
   print("model_vgg16.state_dict(): {}".format(model_vgg16.state_dict()))
 
-"""
-  TODOEg3.4.1 : torch.save(model.state_dict(), f)
-"""
 
 def eg_3_4_1():
+  """
+  Eg3.4.1 : torch.save(model.state_dict(), f)
+  """
   from torchvision import models
 
   model_vgg16 = models.vgg16()
   torch.save(model_vgg16.state_dict(), "./vgg16.pth",)
 
-"""
-  TODOEg3.4.2 : model.load_state_dict()
-"""
 
 def eg_3_4_2():
+  """
+  Eg3.4.2 : model.load_state_dict()
+  """
   from torchvision import models
 
   model_vgg16 = models.vgg16()
@@ -171,11 +172,11 @@ def eg_3_4_2():
   print("missing_keys: {}".format(missing_keys))
   print("unexpected_keys: {}".format(unexpected_keys))
 
-"""
-  TODOEg3.4.3 : strict=False
-"""
 
 def eg_3_4_3():
+  """
+  Eg3.4.3 : strict=False
+  """
   from torchvision import models
 
   model_vgg16 = models.vgg16()
@@ -188,16 +189,18 @@ def eg_3_4_3():
   print("missing_keys: {}".format(missing_keys))
   print("unexpected_keys: {}".format(unexpected_keys))
 
-"""
-  TODOEg3.5 : torch.utils.model_zoo
-"""
+
 def eg_3_5():
+  """
+  Eg3.5 : torch.utils.model_zoo.load_url()
+  """
   from torch.utils import model_zoo
   from torchvision import models
 
   model_alexnet = models.alexnet()
   state_dict = model_zoo.load_url('http://download.pytorch.org/models/alexnet-owt-7be5be79.pth')
   model_alexnet.load_state_dict(state_dict)
+
 
 if __name__ == "__main__":
   """

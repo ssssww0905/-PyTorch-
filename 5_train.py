@@ -19,13 +19,13 @@ transform = transforms.Compose(
     transforms.Normalize(mean=(0.5,), std=(0.5,))
   ]
 )
-#------------------dataset------------------#
+# dataset
 train_dataset = MNIST(root="./mnist_data",
                       train=True,
                       transform=transform,
                       target_transform=None,
                       download=False)
-#-----------------dataloader----------------#
+# dataloader
 train_loader = DataLoader(dataset=train_dataset,
                           batch_size=100,
                           shuffle=True)
@@ -48,13 +48,13 @@ class SimpleModel(nn.Module):
       x = self.linear(x)
       x = self.relu(x)
       return x
-#-------------------model------------------#
+# model
 model = SimpleModel()
 model.load_state_dict(torch.load("./model_2021_11_19.pth"))
-#-----------------optimizer----------------#
+# optimizer
 optimizer = optim.SGD(params=model.parameters(), lr=0.001, momentum=0.9)
 loss_fn = nn.CrossEntropyLoss()
-
+# train
 for epoch in range(10):
   with tqdm(train_loader, desc="EPOCH: {}".format(epoch)) as train_bar:
     for (x, y) in train_bar:

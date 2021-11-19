@@ -11,6 +11,7 @@ import torch
 from torch.utils.data import Dataset
 from torch.utils.data._utils import collate
 from torchvision import transforms
+from torchvision.datasets.mnist import MNIST
 
 transform = transforms.Compose(
   [
@@ -18,18 +19,18 @@ transform = transforms.Compose(
     transforms.Normalize(mean=(0.5,), std=(0.5,))
   ]
 )
-from torchvision.datasets.mnist import MNIST
+
 train_dataset = MNIST(root="./mnist_data",
                       train=True,
                       transform=transform,
                       target_transform=None,
                       download=False)
 
-"""
-  TODOEg2.1 : __iter__
-"""
 
 def eg_2_1():
+  """
+  Eg2.1 : __iter__
+  """
   from torch.utils.data import DataLoader
   train_loader = DataLoader(dataset=train_dataset,
                             batch_size=10000,
@@ -45,11 +46,11 @@ def eg_2_1():
     print("batch[1].shape: {}".format(batch[1].shape))  # torch.Size([10000])
     break
 
-"""
-  TODOEg2.2 : __len__
-"""
 
 def eg_2_2():
+  """
+  Eg2.2 : __len__
+  """
   from torch.utils.data import DataLoader
   train_loader = DataLoader(dataset=train_dataset,
                             batch_size=10000,
@@ -58,11 +59,11 @@ def eg_2_2():
   print("len(train_loader): {}".format(len(train_loader)))  # 6
   print("len(train_loader.dataset): {}".format(len(train_loader.dataset)))  # 60000
 
-"""
-  TODOEg2.3.0 : enumerate
-"""
 
 def eg_2_3_0():
+  """
+  Eg2.3.0 : enumerate
+  """
   from torch.utils.data import DataLoader
   train_loader = DataLoader(dataset=train_dataset,
                             batch_size=10000,
@@ -75,11 +76,11 @@ def eg_2_3_0():
     # batch: 0, x.shape: torch.Size([10000, 1, 28, 28]), y.shape: torch.Size([10000])
     break
 
-"""
-  TODOEg2.3.1 : tqdm
-"""
 
 def eg_2_3_1():
+  """
+  Eg2.3.1 : tqdm
+  """
   from torch.utils.data import DataLoader
   from tqdm import tqdm
   train_loader = DataLoader(dataset=train_dataset,
@@ -90,11 +91,11 @@ def eg_2_3_1():
     for (x, y) in train_bar:
       pass
 
-"""
-  TODOEg2.4 : tqdm
-"""
 
 def eg_2_4():
+  """
+  Eg2.4 : collate_fn
+  """
   def collate_fn(batch):
     print("type(batch): {}, len(batch): {}".format(type(batch), len(batch)))  # <class 'list'>, 10000
     x = [i[0] for i in batch]
@@ -117,6 +118,7 @@ def eg_2_4():
     print("batch[\"x\"].shape: {}".format(batch["x"].shape))  # torch.Size([10000, 1, 28, 28])
     print("batch[\"y\"].shape: {}".format(batch["y"].shape))  # torch.Size([10000])
     break
+
 
 if __name__ == "__main__":
   """

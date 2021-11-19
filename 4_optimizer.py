@@ -11,6 +11,7 @@ import torch
 from torch import nn
 from torch.utils.data import Dataset, DataLoader
 from torchvision import models, transforms
+from torchvision.datasets.mnist import MNIST
 
 transform = transforms.Compose(
   [
@@ -18,7 +19,7 @@ transform = transforms.Compose(
     transforms.Normalize(mean=(0.5,), std=(0.5,))
   ]
 )
-from torchvision.datasets.mnist import MNIST
+
 train_dataset = MNIST(root="./mnist_data",
                       train=True,
                       transform=transform,
@@ -48,30 +49,30 @@ class SimpleModel(nn.Module):
 
 model = SimpleModel()
 
-"""
-  TODOEg4.0 : torch.optim
-"""
 
 def eg_4_0():
+  """
+  Eg4.0 : torch.optim
+  """
   from torch import optim
   optimizer = optim.SGD(params=model.parameters(), lr=0.0001, momentum=0.9)
   print("optim.state_dict(): {}".format(optimizer.state_dict()))
 
-"""
-  TODOEg4.1 : params
-"""
 
 def eg_4_1():
+  """
+  Eg4.1 : params
+  """
   from torch import optim
   params = [param for name, param in model.named_parameters() if ".bias" in name]
   optimizer = optim.SGD(params=params, lr=0.0001, momentum=0.9)
   print("optim.state_dict(): {}".format(optimizer.state_dict()))
 
-"""
-  TODOEg4.2 : zero_grad(), step()
-"""
 
 def eg_4_2():
+  """
+  Eg4.2 : zero_grad(), step()
+  """
   from torch import optim
   from tqdm import tqdm
   optimizer = optim.SGD(params=model.parameters(), lr=0.001, momentum=0.9)
