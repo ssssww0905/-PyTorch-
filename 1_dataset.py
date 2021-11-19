@@ -129,7 +129,8 @@ def eg_1_4_0():
       transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
     ]
   )
-  train_dataset = ImageFolder(root=os.path.join("./flower_data", "train"), transform=transform)
+  train_dataset = ImageFolder(root=os.path.join("./flower_data", "train"),
+                              transform=transform)
 
   index = 0
   print("type(train_dataset[{}]): {}".format(index, type(train_dataset[index])))  # <class 'tuple'>
@@ -153,7 +154,8 @@ def eg_1_4_1():
       transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
     ]
   )
-  train_dataset = ImageFolder(root=os.path.join("./flower_data", "train"), transform=transform)
+  train_dataset = ImageFolder(root=os.path.join("./flower_data", "train"),
+                              transform=transform)
 
   print("train_dataset.classes: {}".format(train_dataset.classes))  # ['daisy', 'dandelion', 'roses', 'sunflowers', 'tulips']
   print("train_dataset.class_to_idx: {}".format(train_dataset.class_to_idx))  # {'daisy': 0, 'dandelion': 1, 'roses': 2, 'sunflowers': 3, 'tulips': 4}
@@ -170,14 +172,14 @@ if __name__ == "__main__":
   1.4.1 classes, class_to_idx
   """
 
-  eg_1_1()
+  # eg_1_1()
   # eg_1_2_0()
   # eg_1_2_1()
   # eg_1_3()
   # eg_1_4_0()
   # eg_1_4_1()
 
-  # print("~~~~~~下课~~~~~~")
+  print("~~~~~~下课~~~~~~")
 
 
 
