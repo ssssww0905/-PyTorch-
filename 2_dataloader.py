@@ -120,7 +120,7 @@ def eg_2_4():
 
 if __name__ == "__main__":
   """
-  2.0 torch.utils.data.Dataloader
+  2.0 torch.utils.data.DataLoader
   2.1 __iter__  [magic methods]
   2.2 __len__  [magic methods]
   2.3.0 enumerate

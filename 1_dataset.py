@@ -138,7 +138,7 @@ def eg_1_4_0():
   print("type(train_dataset[{}][1]): {}".format(index, type(train_dataset[index][1])))  # <class 'int'>
 
 """
-  TODOEg1.4.1 : ImageFolder
+  TODOEg1.4.1 : classes, class_to_idx
 """
 
 def eg_1_4_1():
@@ -163,8 +163,11 @@ if __name__ == "__main__":
   """
   1.0 torch.utils.data.Dataset
   1.1 __getitem__, __len__  [magic methods]
-  1.2 MNIST, VOCSegmentation, VOCDetection
-  1.3 ImageFolder
+  1.2.0 MNIST
+  1.2.1 transforms
+  1.3 VOCSegmentation, VOCDetection
+  1.4.0 ImageFolder
+  1.4.1 classes, class_to_idx
   """
 
   eg_1_1()
