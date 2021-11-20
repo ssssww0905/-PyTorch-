@@ -127,7 +127,7 @@ def eg_2_4():
     print("batch[\"y\"].shape: {}".format(batch["y"].shape))  # torch.Size([10000])
     break
 
-
+from torch.utils.data import DataLoader
 if __name__ == "__main__":
   """
   2.0 torch.utils.data.DataLoader https://pytorch.org/docs/stable/data.html

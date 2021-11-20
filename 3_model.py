@@ -75,7 +75,7 @@ def eg_3_0_1():
 
 def eg_3_1():
   """
-  Eg3.1 : __call__  [magic methods]
+  Eg3.1 : __call__  [magic method]
   """
   from torch import nn
   class SimpleModel(nn.Module):
@@ -205,12 +205,12 @@ def eg_3_5():
   state_dict = model_zoo.load_url('http://download.pytorch.org/models/alexnet-owt-7be5be79.pth')
   model_alexnet.load_state_dict(state_dict)
 
-
+from torch.nn import Module
 if __name__ == "__main__":
   """
   3.0.0 torch.nn.Module
   3.0.1 super().__init__()
-  3.1 __call__  [magic methods]
+  3.1 __call__  [magic method]
   3.2 (B, C, H ,W)
   3.3 torchvison.models
   3.4.0 model.dict_state()
@@ -228,7 +228,7 @@ if __name__ == "__main__":
   # eg_3_4_0()
   # eg_3_4_1()
   # eg_3_4_2()
-  eg_3_4_3()
+  # eg_3_4_3()
   # eg_3_5()
 
   print("~~~~~~下课~~~~~~")

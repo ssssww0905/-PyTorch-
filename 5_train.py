@@ -55,7 +55,7 @@ model.load_state_dict(torch.load("./model_2021_11_19.pth"))
 optimizer = optim.SGD(params=model.parameters(), lr=0.001, momentum=0.9)
 loss_fn = nn.CrossEntropyLoss()
 # train
-for epoch in range(10):
+for epoch in range(2):
   with tqdm(train_loader, desc="EPOCH: {}".format(epoch)) as train_bar:
     for (x, y) in train_bar:
       optimizer.zero_grad()
@@ -67,4 +67,4 @@ for epoch in range(10):
 time = str(datetime.now()).split(" ")[0].replace("-", "_")
 torch.save(model.state_dict(), "model_{}.pth".format(time))
 
-print("~~~~~~下课~~~~~~")
+print("~~~~~~撒花~~~~~~")
