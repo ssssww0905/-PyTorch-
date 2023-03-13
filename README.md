@@ -7,3 +7,4 @@
 5. [【PyTorch】Dataset数据集实例讲解，CSV数据&VOC格式](https://www.bilibili.com/video/BV1tq4y1B7sp/)
 6. [【PyTorch】旁友，学卷积吗？dilation/ groups/ transpose进阶（下）](https://www.bilibili.com/video/BV1SL411V7dc)
 7. [【PyTorch】注意力自注意力多头注意力](https://www.bilibili.com/video/BV1dY41117Qp/)
+8. [【PyTorch】VAE从框架到概率到网络](https://www.bilibili.com/video/BV1824y147Ey/)
